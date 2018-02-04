@@ -1,0 +1,49 @@
+<!-- $scope is per controller == each controller has its own scope
+    incase of nested controllers since its difficult to debug which scope the property is coming from
+    , so its always prefferd to use Controller as syntax wherein you specify which scope lookup to make
+
+-->
+<html ng-app="multiCtlrApp">
+
+<head>
+    <title>Model Examples</title>
+    <script src="angular.js"></script>
+    <script src="eg6_CtlrAsSyntax.js"></script>
+</head>
+
+<body >  
+
+     <!-- <div ng-controller="OuterCtlr1">
+            <p> Out1: {{someText}}</p>
+            <div ng-controller="InnerCtlr1">
+                 <p> Inner1: {{someText}}</p>
+            </div>
+     </div>
+     
+     <div ng-controller="OuterCtlr2">
+             <p> Out2: {{someText}}</p>
+             <div ng-controller="InnerCtlr2">
+                  <p> Inner2: {{someText}}</p>
+             </div>
+      </div> -->
+      
+      <!-- in controller as syntax we need to specify which controller's scope to use explicitly -->
+
+      <div ng-controller="OuterCtlr1 as oc1">
+            <p> Out1: {{oc1.someText}}</p>
+            <div ng-controller="InnerCtlr1 as ic1">
+                 <p> Inner1: {{ic1.someText}}</p>
+            </div>
+     </div>
+     
+     <div ng-controller="OuterCtlr2 as oc2">
+             <p> Out2: {{oc2.someText}}</p>
+             <div ng-controller="InnerCtlr2 as ic2">
+                  <p> Inner2: {{ic2.someText}}</p>
+                  <p> Inner2 using parent scope: {{oc2.someText}}</p>
+             </div>
+      </div>
+
+</body>
+
+</html>

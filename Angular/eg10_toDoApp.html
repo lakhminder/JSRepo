@@ -1,0 +1,34 @@
+<!-- 
+ng-repeat doesn't work with duplicates
+sol 1 => use object instead of primitive(string)
+sol 2 => use track by <somethingUnique>as shown here, safe to use $index as it is created by ng-repeat itself
+refer JS as well for array related functions
+-->
+<html ng-app="toDoApp">
+
+<head>
+    <title>TO DO APP</title>
+    <script src="angular.js"></script>
+    <script src="eg10_toDoApp.js"></script>    
+</head>
+
+<body ng-controller="ToDoCtlr as ctlr">
+    <h1>TO DO APP</h1>
+    <p>Add a Todo:</p>
+    <input type="text" ng-model="ctlr.newTodo" name="" id="">
+    <button ng-click="ctlr.addNewTodo()">Add</button>
+    
+    <p>Your Todos:</p>
+    <button ng-hide="ctlr.editMode" ng-click="ctlr.triggerEditMode()">Edit</button>
+    <button ng-show="ctlr.editMode" ng-click="ctlr.triggerEditMode()">Done</button>
+    <ol><!-- ordered List -->
+        <li ng-repeat="todo in ctlr.todos track by $index">
+            <span ng-hide="ctlr.editMode">{{todo}}</span>
+            <input ng-show="ctlr.editMode" ng-model="todo" type="text"/>
+            <button ng-hide="ctlr.editMode" ng-click="ctlr.deleteTodo($index)" >Delete</button>
+        </li>
+    </ol>
+
+</body>
+
+</html>

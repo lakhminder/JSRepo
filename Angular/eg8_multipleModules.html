@@ -1,0 +1,29 @@
+<!-- 
+Modules can be imported/reused by including in array while creating app JS .see eg8_multipleModules.js
+Many modules can be imported in single application.
+otherModule is added as dependency to this module/app
+
+-->
+<html ng-app="multiModuleApp">
+
+<head>
+    <title>Multiple Modules</title>
+    <script src="angular.js"></script>
+    <script src="eg8_multipleModules.js"></script>
+    <script src="eg8_otherModule.js"></script>
+</head>
+
+<body >
+    <h1>Multiple Modules</h1>
+    <div ng-controller="OtherCtlr as other">
+            {{other.printText}}
+    </div>
+    <hr>
+    <div ng-controller="MyCtlr as main">
+        {{main.printText}}
+    </div>
+    
+
+</body>
+
+</html>

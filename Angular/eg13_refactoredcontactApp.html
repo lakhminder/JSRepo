@@ -1,0 +1,70 @@
+<!-- 
+eg12 is refactored to make use of $http service of angular to make rest calls.
+$http.get is asynchronous in nature and returns a promise
+<promise>.then also returns a promise
+promise retrunType will becomes argument for another promise's function
+So we need to use promises to have an asynchronous behavior.
+Also in controller need to store 'this' reference in variable so taht after asynchronous call it can be referred
+refer eg13_refactoredcontactApp.controller.js
+
+refer
+eg13_refactoredcontactAppData.service.js
+
+
+-->
+<html ng-app="refactoredContactApp">
+
+<head>
+    <title>Contact APP</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- <script src="bootstrap.min.js"></script> -->
+    <script src="angular.js"></script>
+    <script src="eg13_refactoredcontactApp.js"></script>
+    <script src="eg13_refactoredcontactApp.controller.js"></script>
+    <script src="eg13_refactoredcontactAppHeader.controller.js"></script>
+    <script src="eg13_refactoredcontactAppName.service.js"></script>
+    <script src="eg13_refactoredcontactAppConfig.service.js"></script>
+    <script src="eg13_refactoredcontactAppData.service.js"></script>
+</head>
+
+<body>
+    <div ng-controller="HeaderCtlr as head">
+            <h1>{{head.appTitle}}</h1>
+    </div>
+    
+    <div class="container" ng-controller="ContactCtlr as ctlr">
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="contact in ctlr.contacts" ng-click="ctlr.selectContact($index)">
+                    {{contact.name.first + " " + contact.name.last}}
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <!-- <img class="media-object" src="..." alt="..."> -->
+                        <img class="media-object" ng-src="{{ctlr.selectedContact.picture.medium}}" >
+                    </a>
+                </div>
+                <div class="media-body">
+                    <p>
+                        <h4 class="media-heading">{{ctlr.selectedContact.name.first + " " + ctlr.selectedContact.name.last}}</h4>
+                        
+                        <h6 class="media-heading">Location: </h6>
+                        {{ctlr.selectedContact.location.street + " " + ctlr.selectedContact.location.city}}
+                        <h6 class="media-heading">Phone: </h6>
+                        {{ctlr.selectedContact.cell}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>    
+
+</body>
+
+</html>

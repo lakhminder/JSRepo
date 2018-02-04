@@ -1,0 +1,21 @@
+<!-- an app to show the current time
+uses JS inbuilt Date functions -->
+<html ng-app="clockApp">
+    <head>
+        <script src="angular.js"></script>
+        <script src="eg3_clock.js"></script>
+    </head>
+    
+    <body >
+        <div ng-controller="ClockCtlr">
+            <h1>clock</h1>
+            <p>the Time is: {{clkTime}}</p>
+            <button ng-click="updateTime()">Update time</button>
+            <p></p>
+            <!-- ng-model is used for two way data binding i.e html <=> Controller -->
+            Enter Text: <input ng-model="userName" type="text">
+            <p>The entered Text is : {{userName}}</p>
+        </div>    
+        
+    </body>
+</html>

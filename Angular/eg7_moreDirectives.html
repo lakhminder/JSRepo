@@ -1,0 +1,37 @@
+<!-- 
+ng-if will completely remove the node/element from DOM tree
+whereas ng-show will change the css to either show or hide the element
+ng-repeat is used as for each loop
+angular creates a scope for each iteration as the multiple objects exists as same time, so it puts <obj> as property in each scope
+
+Angular also creates a scope for ng-if.... you can check class of element to see ng-scope applied by 
+angular to showcase that a new scope has been created.
+ng-repeat further puts some ore proerties in scope like $index, $first etc
+-->
+<html ng-app="showNHideApp">
+
+<head>
+    <title>More Directives</title>
+    <script src="angular.js"></script>
+    <script src="eg7_moreDirectives.js"></script>
+</head>
+
+<body ng-controller="Ctlr as c">
+    <h1>NG HideNShow</h1>
+    <input type="checkbox" ng-model="c.checkedValue"></input>
+    <p ng-if="c.checkedValue">if Content</p>
+    <p ng-show="c.checkedValue">show content</p>
+    <p ng-hide="c.checkedValue">hide contet</p>
+    <hr>
+    <h2>NG Repeat</h2>
+    <!-- For each Loop for array-->
+    <div ng-repeat="obj in c.objList">
+        <p>counter: {{$index + 1}} isFirst {{$first}}</p>
+        <p>Name:{{obj.name}}</p>
+        <p>Age:{{obj.age}}</p>
+        <hr>
+    </div>
+
+</body>
+
+</html>

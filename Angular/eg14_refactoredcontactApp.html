@@ -1,0 +1,98 @@
+<!-- 
+eg13 is refactored to add put rest call(update functionality).
+$http.put("url", ObjectToUpdate)
+
+display is changed to have columnar look using bootstrap (12 column grid based) col-md-6 style
+inside of row style
+col-md-6 tag => uses 6 cols width as 1 column
+see alert(bootstrap) for Message
+
+promises => .then(F1,F2) takes 2 or 1 argument as function where in 1st is called incase of success and 2nd is
+called incase of error.F2 is termed Error Handler
+However all chain of .then is checked to find 1st Error handler and invoked incase of error else every F1 is ignored.This is 
+the behavior of promises atleast in angular
+refer AppController and AppDataSvc for error handling
+
+only update cell for brevity
+
+refer controller and AppdataService
+
+=======================
+$http.post can be implemented in same way
+1) Add 'Add' button in html to ng-click="ctlr.addContact()"
+2) need to create empty object in AppController as follows
+this.addContact = function(){
+    this.selectedContact = {
+        "id" : someRandomId => new Date().toTimeString();
+    };
+    this.editMode = true;
+}
+//Then all edit text boxes can be used to implement add functionality
+3) use another flag to denote if add is clicked or edit is clicked => this.addMode = true;
+4) use addMode to route it post service call
+
+-->
+<html ng-app="refactoredContactApp">
+
+<head>
+    <title>Contact APP</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- <script src="bootstrap.min.js"></script> -->
+    <script src="angular.js"></script>    
+    <script src="eg14_refactoredcontactApp.js"></script>
+    <script src="eg14_refactoredcontactApp.controller.js"></script>
+    <script src="eg14_refactoredcontactAppHeader.controller.js"></script>
+    <script src="eg14_refactoredcontactAppName.service.js"></script>
+    <script src="eg14_refactoredcontactAppConfig.service.js"></script>
+    <script src="eg14_refactoredcontactAppData.service.js"></script>
+</head>
+
+<body>
+    <div ng-controller="HeaderCtlr as head">
+        <h1>{{head.appTitle}}</h1>
+    </div>
+
+    <div class="container" ng-controller="ContactCtlr as ctlr">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="contact in ctlr.contacts" ng-click="ctlr.selectContact($index)">
+                        {{contact.name.first + " " + contact.name.last}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-success" ng-if="ctlr.successMessage">{{ctlr.successMessage}}</div>
+                <div class="alert alert-danger" ng-if="ctlr.errorMessage">{{ctlr.errorMessage}}</div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <!-- <img class="media-object" src="..." alt="..."> -->
+                            <img class="media-object" ng-src="{{ctlr.selectedContact.picture.medium}}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <p>
+                            <h4 class="media-heading">{{ctlr.selectedContact.name.first + " " + ctlr.selectedContact.name.last}}</h4>
+                            <button ng-show="ctlr.editMode" ng-click="ctlr.updateUser()">Save</button>
+                            <button ng-hide="ctlr.editMode" ng-click="ctlr.toggleEditMode()">Edit</button>
+
+                            <h6 class="media-heading">Location: </h6>
+                            {{ctlr.selectedContact.location.street + " " + ctlr.selectedContact.location.city}}
+
+                            <h6 class="media-heading">Phone: </h6>
+                            <div ng-hide="ctlr.editMode">{{ctlr.selectedContact.cell}}</div>
+                            <input ng-show="ctlr.editMode" type="text" ng-model="ctlr.selectedContact.cell">
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!--see the script scetion
+    Angular application should have module to refer to through ng-app directive 
+    without mentioning in ng-app directive , it will have default module but to register controllers/functions
+    one should have your own module
+    module can have multiple controllers 
+    you have to register the function with controller
+    within div tag the mainFunction is called
+-->
+<html ng-app="myApp"><!-- refers module myApp-->
+    <head>
+        <script src="angular.js"></script>
+    </head>
+    
+    <!-- <body ng-init="varName=10">  look in script how to initialize variable using angular-->
+    <body >
+        <div ng-controller="MainCtlr"><!-- refers controller MainCtlr-->
+            <h1>Heading</h1>
+            <p ng-if=varName < 11 >conditional paragraph</p>
+
+            <p>the value is: {{varName}}</p>
+        </div>
+        <script>
+            // angular is a global object created by angular.js
+            var module = angular.module("myApp", []);
+            module.controller("MainCtlr", mainFunction);//JS does not allow method overloading
+            // mainFunction is a global function
+            function mainFunction($scope){//to refer the 'scope' object of angular using DI, angular injects object 'scope' 
+            //by reffering with '$'
+            //$scope method parameter is not neccessary but we can access by asking angular to inject it
+                $scope.varName = 10;
+                console.log("Main called from Div!!");
+            }
+        </script>
+    </body>
+</html>

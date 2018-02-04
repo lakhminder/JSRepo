@@ -1,0 +1,20 @@
+<!-- ng-app auto bootstrap angular -->
+<html ng-app>
+    <head>
+        <script src="angular.js"></script>
+    </head>
+    <!-- ng-init is used to initialize variables
+    however need not use it as there are other better ways to do
+    all ng directives uses the common object named 'scope' to share the state/talk to each other -->
+    <body ng-init="varName=10">
+        <h1>Heading</h1>
+        <p ng-if=varName < 11 >conditional paragraph</p><!-- its actually scope.varName -->
+
+
+        <p ng-bind="varName">The value is:</p><!--ng-bind binds the variable(property on scope object) to html -->
+        <p>The value is:<span ng-bind="varName"></span></p>
+        <!-- The better way is to use {{<expression>}} instead of ng-bind=> only non tag based ng directive need not use span element-->
+        <p>the value is: {{varName}}</p>
+
+    </body>
+</html>

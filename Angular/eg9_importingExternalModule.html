@@ -1,0 +1,30 @@
+<!-- 
+External Modules can also be used/imported.
+refer ngmodules.org for external good angular reusable modules
+Here we are adding ngTagsInput module as dependency in our module
+Include script/CSS from CDN(Content Delivery Netowrk) or GIT
+-->
+<html ng-app="externalModuleApp">
+
+<head>
+    <title>External Modules</title>
+    <!-- <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.css" />
+    <script src="angular.js"></script>
+    <script src="eg9_importingExternalModule.js"></script>
+    <!-- <script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.js"></script> <!-- CDNJS url-->
+</head>
+
+<body >
+    <h1>Imported Ng Tags Input Modules</h1>
+    <div ng-controller="MyCtlr as c">
+        <tags-input ng-model="c.tags"></tags-input>
+    </div>
+    
+    
+    
+
+</body>
+
+</html>

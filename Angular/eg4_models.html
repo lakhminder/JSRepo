@@ -1,0 +1,37 @@
+<!-- an app to show the various models 2 way bindings  using ng-model
+No need to initialize the models in JS eg 'textString', 
+Angular will create on first usage
+
+-->
+<html ng-app="modelApp">
+
+<head>
+    <title>Model Examples</title>
+    <script src="angular.js"></script>
+    <script src="eg4_models.js"></script>
+</head>
+
+<body ng-controller="ModelCtlr">
+    <h1>Model Examples with 2 way data bindings</h1>
+    <p>TextBox: <input type="text" ng-change="textBoxChange()" ng-model="textString" ></p>
+    <p>TextBox2: <input type="text" ng-model="textString" ></p>
+    <p>TextBox3: <input type="text" ng-model="textString" ></p>
+    <p>CheckBox: <input type="checkbox" ng-model="checkedValue" ></p>
+    <p>Date: <input type="date" ng-model="dateValue"></p>
+    <p>Radio: 
+       <p> <input type="radio" ng-model="radioValue" value="opt1">option 1</input></p>
+       <p> <input type="radio" ng-model="radioValue" value="opt2">option 2</input></p>
+       <p> <input type="radio" ng-model="radioValue" value="opt3">option 3</input></p>
+    </p>
+
+    <h3>Output</h3>
+    <div>
+        <p>Text input: {{textString}}</p>
+        <p>Checkbox input: {{checkedValue}}</p>
+        <p>Date input: {{dateValue}}</p>
+        <p>Radio input: {{radioValue}}</p>
+    </div>
+
+</body>
+
+</html>

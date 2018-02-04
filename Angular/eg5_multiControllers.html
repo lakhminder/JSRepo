@@ -1,0 +1,35 @@
+<!-- $scope is per controller == each controller has its own scope
+    however every angular application has a default global scope called the 'root scope'.Outside
+    any controller, its the root scope that applies.
+    scope hierachy is like incase of nested controllers
+    1) First the lookup is in inner Ctlr scope object
+    2) not found, then lookup is in outer/parent Ctlr if exists
+    3) finally lookup is in root scope
+
+-->
+<html ng-app="multiCtlrApp">
+
+<head>
+    <title>Model Examples</title>
+    <script src="angular.js"></script>
+    <script src="eg5_multiControllers.js"></script>
+</head>
+
+<body >
+    <div ng-controller="OuterCtlr1">
+           <p> Out1: {{someText}}</p>
+           <div ng-controller="InnerCtlr1">
+                <p> Inner1: {{someText}}</p>
+           </div>
+    </div>
+    
+    <div ng-controller="OuterCtlr2">
+            <p> Out2: {{someText}}</p>
+            <div ng-controller="InnerCtlr2">
+                 <p> Inner2: {{someText}}</p>
+            </div>
+     </div>
+
+</body>
+
+</html>
