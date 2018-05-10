@@ -1,0 +1,33 @@
+* Creating an angular app
+	Open a new folder
+	=> ng new <appName>
+	eg ng new a4app
+
+* run application on development server
+	=> cd <appName>
+	=> ng serve
+	By default it will start app on 4200
+	open your browser on http://localhost:4200/
+* package.json is metafile
+	contains scripts dependencies...
+* app.module.ts contains information for all modules/services/components
+	refer a4app comments
+
+
+* to create a Angular component	(using angular cli)
+	* create new folder components (just for modularity)
+	* => ng g component <componentPath/Componentname> // g is for generate
+		a4app>> eg ng g component components/user
+		
+	this will add user component in app.module.ts as well
+	will create user.html and user.ts files
+	
+* Use https://jsonplaceholder.typicode.com/ for fake Rest API's
+
+* To create a Angular Service
+	* create new folder Services
+	* => ng g service <servicePath/serviceName>
+	a4app>> ng g service services/userData
+	
+	but for service you need to manually add in app.module.ts
+	rest files inside service/serviceName would be created on its own

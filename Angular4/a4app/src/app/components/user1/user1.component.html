@@ -1,0 +1,83 @@
+<!-- Refer component.ts as well -->
+<p>
+  user1 works!: {{name}}
+</p>
+  <ul>
+    <li>Age : {{age}}</li>
+    <li>Email : {{email}}</li>
+    <li>Address : {{address.street}}, {{address.city}} - {{address.state}}</li>
+  </ul>
+
+  <!-- ngbutton syntax -->
+  <button (click)="onClickMe()">Click Me</button>
+  <button (click)="toggleEditUser()">Edit User</button>
+
+<!-- Forms module was added for this -->
+<div *ngIf=isEditUser>
+    <h3>Edit User</h3>
+    <form>
+      <div>
+        <label for="name">Name :</label>
+        <input type="text" [(ngModel)]="name" name="name"><!-- name attribute is imp to write for 2 way binding-->
+      </div>
+      <div>
+        <label for="age">Age :</label>
+        <input type="number" [(ngModel)]="age" name="age">
+      </div>
+      <div>
+        <label for="email">Email :</label>
+        <input type="text" [(ngModel)]="email" name="email">
+      </div>
+      <div>
+        <label for="street">Street :</label>
+        <input type="text" [(ngModel)]="address.street" name="street"><!-- only street as name would do -->
+      </div>
+      <div>
+        <label for="city">City :</label>
+        <input type="text" [(ngModel)]="address.city" name="city">
+      </div>
+      <div>
+        <label for="state">State :</label>
+        <input type="text" [(ngModel)]="address.state" name="state">
+      </div>
+    </form>
+  </div>
+  
+  <h5>Hobbies as simple CSV</h5>
+  <p>{{hobbies}}</p>
+
+  <h5>Hobbies using ngFor</h5>
+  <!-- <form (submit)="addHobby(hb.value)"> // use enter to submit form
+    <div>
+      <label for="hobbyTextBox">Hobby:</label>
+      <input type="text" #hb>      
+    </div>
+  </form> -->
+
+  <form >
+    <div>
+      <label for="hobbyTextBox">Hobby:</label>
+      <input type="text" #hb>
+      <button type="submit" (click)="addHobby(hb.value)">Submit</button>
+    </div>
+  </form>
+
+  <ul>
+    <li *ngFor="let hobby of hobbies; let i = index" >{{i + 1}}: {{hobby}}
+      <button (click)="deleteHobby(i)">Delete</button>
+    </li>
+  </ul>
+
+  <!-- ngrepeat doesn't work in angular 4 -->
+  <!-- <h5>Hobbies using ngrepeat</h5>
+  <ul>
+    <li ng-repeat="item in hobbies"> : {{item}}</li>
+  </ul> -->
+
+  <h4>Posts</h4>
+  <button (click)=getPosts()>Show Posts</button>
+  <div>
+    <div *ngFor="let p of posts" >
+      {{p.title}}<br>
+    </div>
+  </div>
