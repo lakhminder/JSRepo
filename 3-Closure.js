@@ -115,6 +115,18 @@ for(i =0; i < 10; i++){
 }
 
 o/p => prints 0-9 after 1 sec as desired
+
+Though normal function passed as value would also do(without IIFE)
+var i;
+
+var print = function(value){
+	console.log(value);
+};
+
+for(i =0; i < 10; i++){
+	setTimeout(print(i), 1000);// it invokes print after 1000 millis
+}
+o/p => prints 0-9 after 1 sec as desired
 ---------------------------------------------------------
 Functions Called as constructor
 
