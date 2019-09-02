@@ -40,6 +40,7 @@ var person = {
 	}
 };
 -----------------------
+There are two default arguments to every function call: 'arguments' and 'this'.	
 Default function 'arguments' --provides all args passed by a callle of function available to function
 
 var add = function(){
