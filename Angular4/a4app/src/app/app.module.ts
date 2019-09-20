@@ -12,8 +12,14 @@ import { User1Component } from './components/user1/user1.component';
 import { UserDataService } from './services/user-data.service';// name shuld match the exact service
 
 const appRoutes : Routes = [
-  {path:'', component:User1Component},
-  {path:'previousVersion', component:UserComponent} // localhost:4200/previousVersion
+  {path: '', component: User1Component},
+  {path: 'previousVersion', component:UserComponent} // localhost:4200/previousVersion
+  //This might only works => angular6
+  //This is used to do browser redirect
+  // pathMatch is 'full' for match full text(prev) or 'prefix' for prev/abc etc..
+  ,{path: 'prev', redirectTo: '/previousVersion', pathMatch:'full'} // /prev => /previousVersion
+  //using wildcard to match any pattern
+  ,{path: '**', component:User1Component}
 ];
 
 @NgModule({// NgModule directive
