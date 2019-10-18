@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>  
+</div>
+<!-- Work with specific Eg and comment others -->
+<!-- <h5>Eg1:</h5>
+<eg1-date></eg1-date>
+<h5>Eg2:</h5> -->
+<!-- Passing parameter as string input to component -->
+<!-- <eg2-user-address name="Ram Sharma"></eg2-user-address>
+
+<h5>Eg2: passing as Object</h5> -->
+<!-- Passing parameter as Object input to component 
+note usage of [] to ask angular to evaluate(so it takes the member variable)-->
+<!-- <eg2-user-address [user]="userObj"></eg2-user-address>
+<h5>Eg3:</h5>
+<eg3-display></eg3-display>
+
+<h5>Eg5:</h5>
+<eg5-http-client></eg5-http-client>
+
+<h5>Eg6:</h5>
+<app-eg6-pipes></app-eg6-pipes> -->
+
+<!-- <h5>Eg7</h5>
+<app-eg7-blog-post-list></app-eg7-blog-post-list> -->
+
+<!-- <h5>Eg8</h5> -->
+<!-- 1* Passing data with same directive-->
+<!-- <p appEg8Highlight="green">This will be highlighted on mouse over using Directive</p> -->
+
+<!-- 2* passing second attribute/directive to pass data -->
+<!-- <p appEg8Highlight color="green">This will be highlighted on mouse over using Directive</p> -->
+
+<h5>Eg9</h5>
+<app-eg9-shell-pattern>
+    <h1 header>Using Content Projection</h1>
+    <!-- using Eg7 component here -->
+    <app-eg7-blog-post-list body></app-eg7-blog-post-list>
+    <h1 footer #appFooter>Footer</h1>
+</app-eg9-shell-pattern>

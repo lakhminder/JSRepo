@@ -1,0 +1,15 @@
+<div>
+  Header here
+  <!-- Using CSS selector header-->
+  <ng-content select="[header]"></ng-content>
+</div>
+<div>
+  <p>Content Here</p>
+  <!-- <ng-content select="[body]"></ng-content> -->
+  <!-- refer with body or without, its same if other selectors have been refered -->
+  <ng-content></ng-content>
+</div>
+<div>
+  <p>Footer here</p>
+  <ng-content select="[footer]"></ng-content>
+</div>

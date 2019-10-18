@@ -1,0 +1,5 @@
+<p>  {{summary}}</p>
+<p>  {{summary | truncate:[20]}}</p><!-- Passing 20 as argument to function -->
+<p>  {{summary | truncate:[20, '..']}}</p><!-- Passing 20 as argument to function -->
+<!-- Expanding text using click event -->
+<p (click)="showFullSummary()">  {{summary}}</p>

@@ -1,0 +1,8 @@
+<!-- ngClass takes an object with key as class and value as boolean.
+we can apply mutiple KV in that object i.e multiple classes -->
+<div [ngClass]="{'fav': post.isFav }">  
+  <p>{{post.title}}</p>
+  <p>{{post.summary}}</p>
+  <button (click)="toggleFav()">Mark Favorite</button>
+  <hr>
+</div>

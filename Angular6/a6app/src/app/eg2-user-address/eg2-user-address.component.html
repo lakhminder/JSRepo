@@ -1,0 +1,22 @@
+<p>
+  Name passed from ParentComponent as String : {{userName}}
+</p>
+<div *ngIf="user">
+  <h1>{{user.name}}</h1>
+  <h3>{{user.designation}}</h3>
+  <p>{{user.address}}</p>
+  <div *ngIf="user.phone.length">
+    <p>Phone:</p>
+    <p *ngFor="let p of user.phone">{{p}}</p>
+  </div>
+</div>
+<div>
+  <p>2 Way data binding</p>
+  <!--  [] => denotes data passed from component to view
+        () => denotes data passed from view to component -->
+  <input type="text" [(ngModel)]="userInput"/>
+  {{userInput}}
+  <!-- value is evaluated as expression i.e userInput member variable is read 
+    i.e component to view-->
+  <input type="text" [value]="userInput">
+</div>

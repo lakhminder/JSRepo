@@ -1,0 +1,14 @@
+<a href="#" (click)="printAllTitlesToConsole()">Print All Titles To Console</a>
+
+  <!--for View Child template reference variable #tile => for handling single component-->
+<!-- <app-eg7-blog-post-tile [postTile]="blogPosts[0][1]" #tile></app-eg7-blog-post-tile>  -->
+<app-eg7-blog-post-tile #tile
+  *ngFor="let post of blogPosts[currentPage]"  
+  [postTile]="post">
+</app-eg7-blog-post-tile><!--passing object to child component-->
+
+
+<app-eg7-paginator 
+  [pages]="blogPosts.length"
+  (pageNumberEvent)="updatePage($event)"><!--passing object and recieving event from child component-->
+</app-eg7-paginator>

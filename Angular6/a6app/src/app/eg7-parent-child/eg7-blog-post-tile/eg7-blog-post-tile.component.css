@@ -1,0 +1,8 @@
+.fav{
+    background-color: aqua;
+}
+
+:host{ /* this is to refer to parent tag in parent component i.e <app-eg7-blog-post-tile>*/
+    margin: 20px;
+}
+
